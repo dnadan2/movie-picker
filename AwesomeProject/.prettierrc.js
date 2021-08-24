@@ -1,7 +1,14 @@
 module.exports = {
-  bracketSpacing: false,
+  bracketSpacing: true,
   jsxBracketSameLine: true,
   singleQuote: true,
-  trailingComma: 'all',
-  arrowParens: 'avoid',
+  trailingComma: 'es5',
+  overrides: [
+    {
+      files: '*.yaml',
+      options: {
+        singleQuote: false,
+      },
+    },
+  ],
 };
