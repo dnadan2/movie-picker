@@ -1,5 +1,3 @@
-import App from './App';
-
-// it('renders correctly', () => {
-//   renderer.create(<App />);
-// });
+describe('app', () => {
+  test('some test', () => {});
+});
