@@ -26,6 +26,7 @@ describe('axios helper', () => {
 
     var response = await post(testPostOption);
 
+    expect(mockRequest).toHaveBeenCalled();
     expect(response).toBeDefined();
   });
 });
