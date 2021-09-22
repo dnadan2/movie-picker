@@ -7,13 +7,15 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "deps": "yarn && cd ios && pod install"
   },
   "dependencies": {
-    "@types/react": "^17.0.19",
-    "@types/react-native": "^0.64.13",
+    "@types/react": "17.0.2",
+    "@types/react-native": "0.64.13",
+    "axios": "0.21.4",
     "react": "17.0.2",
-    "react-native": "^0.65.1"
+    "react-native": "0.65.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
