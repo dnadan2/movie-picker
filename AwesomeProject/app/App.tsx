@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
+import FilmBanner from './FilmBanner/FilmBanner';
 
 const App = () => {
   return (
     <SafeAreaView>
-      <View style={{ backgroundColor: 'red' }}>
-        <Text>some text</Text>
-      </View>
+      <FilmBanner />
     </SafeAreaView>
   );
 };
