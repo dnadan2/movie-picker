@@ -1,5 +1,6 @@
 import { create } from 'react-test-renderer';
 import FilmBanner from './FilmBanner';
+import React from 'react';
 
 describe('film banner', () => {
   test('should display a film banner', () => {
