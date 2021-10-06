@@ -1,12 +1,16 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image } from 'react-native';
 import { styles } from './FilmBanner.styles';
 
-const FilmBanner = () => {
+interface Props {
+  imageUrl: string;
+}
+
+const FilmBanner: React.FC<Props> = ({ imageUrl }) => {
   return (
     <View>
       <Image
-        source={require('../assets/film_banner.jpeg')}
+        source={require(imageUrl)}
         style={styles.image}
         testID="film-banner-image"
       />
