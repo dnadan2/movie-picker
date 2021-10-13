@@ -10,7 +10,9 @@ const FilmBanner: React.FC<Props> = ({ imageUrl }) => {
   return (
     <View>
       <Image
-        source={require(imageUrl)}
+        source={{
+          uri: 'https://image.tmdb.org/t/p/original/hkC4yNDFmW1yQuQhtZydMeRuaAb.jpg',
+        }}
         style={styles.image}
         testID="film-banner-image"
       />

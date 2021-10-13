@@ -5,7 +5,7 @@ import React from 'react';
 describe('film banner', () => {
   test('should display a film banner', () => {
     const rendered = create(
-      <FilmBanner imageUrl="../assets/film_banner.jpeg"></FilmBanner>
+      <FilmBanner imageUrl="https://image.tmdb.org/t/p/original/hkC4yNDFmW1yQuQhtZydMeRuaAb.jpg"></FilmBanner>
     );
 
     expect(
