@@ -6,13 +6,15 @@ import { StreamingAvailabilityResponse } from '../../Api/StreamingAvailability/i
 
 describe('Saga: get film availability', () => {
   test('getFilmAvailabilitySaga', () => {
-    const mockGetAvailability = jest.fn();
     const expectedResult: Partial<StreamingAvailabilityResponse> = {
       posterURLs: { original: '' },
     };
 
-    console.log('dddaaas');
-    jest.spyOn(streamingAvailability, 'getAvailability');
+    const mockGetAvailability = jest.fn().mockReturnValue(expectedResult);
+
+    jest
+      .spyOn(streamingAvailability, 'getAvailability')
+      .mockImplementation(mockGetAvailability);
 
     return expectSaga(getFilmAvailabilitySaga)
       .put(

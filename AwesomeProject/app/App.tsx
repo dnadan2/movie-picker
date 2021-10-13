@@ -4,11 +4,10 @@ import createSagaMiddleware from 'redux-saga';
 import { getAvailability } from './api/StreamingAvailability/StreamingAvailability';
 import FilmBanner from './ui/FilmBanner/FilmBanner';
 import { registerSagas } from './rootSagas';
+import { configuredStore } from './configureStore';
 
 const App = () => {
-  const sagaMiddleware = createSagaMiddleware();
-
-  registerSagas(sagaMiddleware);
+  const store = configuredStore();
 
   return (
     <SafeAreaView>
