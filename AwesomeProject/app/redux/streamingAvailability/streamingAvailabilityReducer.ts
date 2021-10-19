@@ -5,25 +5,21 @@ import {
 } from '../../actions/streamingAvailabilityAction';
 import { StreamingAvailabilityResponse } from '../../api/StreamingAvailability/interfaces';
 import { DeepReadonlyObject } from '../../helpers/readonlyInterfaces';
+import { StreamingAvailabilityState } from './interfaces';
 
 export const defaultState = {
-  films: [],
+  films: [] as Partial<StreamingAvailabilityResponse>,
 };
 
-interface StreamingAvailabilityState {
-  films: StreamingAvailabilityResponse[];
-}
-
-const reducer = createReducer<
+export const streamingAvailabilityReducer = createReducer<
   DeepReadonlyObject<StreamingAvailabilityState>,
   StreamingAvailabilityAction
->(defaultState).handleAction(
+>(defaultState as StreamingAvailabilityState).handleAction(
   onGetStreamingAvailability.success,
   (state, action) => {
     return {
+      ...state,
       films: action.payload,
     };
   }
 );
-
-export default reducer;
