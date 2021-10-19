@@ -1,17 +1,20 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
-import createSagaMiddleware from 'redux-saga';
-import { getAvailability } from './api/StreamingAvailability/StreamingAvailability';
+import { Provider, useDispatch } from 'react-redux';
 import FilmBanner from './ui/FilmBanner/FilmBanner';
-import { registerSagas } from './rootSagas';
 import { configuredStore } from './configureStore';
+import { onGetStreamingAvailability } from './actions/streamingAvailabilityAction';
 
 const App = () => {
-  const store = configuredStore();
+  const dispatch = useDispatch();
+  const store = configuredStore;
+  dispatch(onGetStreamingAvailability.request());
 
   return (
     <SafeAreaView>
-      <FilmBanner imageUrl="https://image.tmdb.org/t/p/original/hkC4yNDFmW1yQuQhtZydMeRuaAb.jpg" />
+      <Provider store={store}>
+        <FilmBanner imageUrl="https://image.tmdb.org/t/p/original/hkC4yNDFmW1yQuQhtZydMeRuaAb.jpg" />
+      </Provider>
     </SafeAreaView>
   );
 };

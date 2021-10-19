@@ -1,17 +1,16 @@
 import { put, takeLatest } from 'redux-saga/effects';
-import { onGetFilmAvailability } from '../../actions/streamingAvailabilityAction';
-import { StreamingAvailabilityResponse } from '../../api/StreamingAvailability/interfaces';
-import { getAvailability } from '../../api/StreamingAvailability/StreamingAvailability';
+import { onGetStreamingAvailability } from '../../actions/streamingAvailabilityAction';
+import { getAvailability } from '../../api/StreamingAvailability/streamingAvailability';
 
 function* getFilmAvailabilityFunction() {
   const response = yield getAvailability('us', 'netflix', 'movie', '1', 'en');
 
-  yield put(onGetFilmAvailability.success(response));
+  yield put(onGetStreamingAvailability.success(response));
 }
 
 export function* getFilmAvailabilitySaga() {
   yield takeLatest(
-    [onGetFilmAvailability.request],
+    [onGetStreamingAvailability.request],
     getFilmAvailabilityFunction
   );
 }

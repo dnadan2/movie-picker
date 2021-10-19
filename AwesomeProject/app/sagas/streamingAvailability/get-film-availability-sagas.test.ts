@@ -1,5 +1,5 @@
 import { expectSaga } from 'redux-saga-test-plan';
-import { onGetFilmAvailability } from '../../actions/streamingAvailabilityAction';
+import { onGetStreamingAvailability } from '../../actions/streamingAvailabilityAction';
 import { getFilmAvailabilitySaga } from './get-film-availability-sagas';
 import * as streamingAvailability from '../../api/StreamingAvailability/StreamingAvailability';
 import { StreamingAvailabilityResponse } from '../../Api/StreamingAvailability/interfaces';
@@ -18,11 +18,11 @@ describe('Saga: get film availability', () => {
 
     return expectSaga(getFilmAvailabilitySaga)
       .put(
-        onGetFilmAvailability.success(
+        onGetStreamingAvailability.success(
           expectedResult as StreamingAvailabilityResponse
         )
       )
-      .dispatch(onGetFilmAvailability.request())
+      .dispatch(onGetStreamingAvailability.request())
       .run({ silenceTimeout: true })
       .then(() => {
         expect(mockGetAvailability).toHaveBeenCalled();

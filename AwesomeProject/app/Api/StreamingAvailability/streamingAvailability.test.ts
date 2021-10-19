@@ -1,8 +1,11 @@
 import * as AxiosHelper from '../Axios/axiosHelper';
 import { getAvailability } from './StreamingAvailability';
-import { StreamingAvailabilityConfig } from './interfaces';
+import {
+  StreamingAvailabilityConfig,
+  StreamingAvailabilityResponse,
+} from './interfaces';
 import { RecursivePartial } from '../../types';
-import { AxiosResponse } from 'axios';
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 describe('streaming availability', () => {
   test('get availability', async () => {
@@ -22,29 +25,19 @@ describe('streaming availability', () => {
       },
     };
 
-    interface StreamingAvailabilityAxios extends AxiosResponse {
-      data: {
-        posterURLs: {
-          original: string;
-        };
-        title: string;
-        overview: string;
-        video: string;
-      };
-    }
-
-    const mockResponse: RecursivePartial<StreamingAvailabilityAxios> = {
-      data: { title: 'some title' },
+    const mockResponse: RecursivePartial<
+      AxiosResponse<StreamingAvailabilityResponse[]>
+    > = {
+      data: [{ title: 'some title' }],
     };
 
-    const mockRequest = jest
-      .fn()
-      .mockResolvedValue(mockResponse as StreamingAvailabilityAxios);
+    const mockRequest = jest.fn().mockResolvedValue(mockResponse);
+
     jest.spyOn(AxiosHelper, 'post').mockImplementation(mockRequest);
 
     const response = await getAvailability('us', 'netflix', 'movie', '1', 'en');
 
     expect(mockRequest).toHaveBeenCalledWith(streamingAvailabilityOptions);
-    expect(response.title).toBe('some title');
+    expect(response[0].title).toBe('some title');
   });
 });
