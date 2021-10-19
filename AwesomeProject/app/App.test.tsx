@@ -1,3 +1,3 @@
 describe('app', () => {
-  test('some test', () => {});
+  test('should display streaming availability choice', () => {});
 });

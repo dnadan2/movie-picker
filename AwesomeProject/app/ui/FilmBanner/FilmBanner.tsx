@@ -4,11 +4,12 @@ import { styles } from './FilmBanner.styles';
 
 interface Props {
   imageUrl: string;
+  testID?: string;
 }
 
-const FilmBanner: React.FC<Props> = ({ imageUrl }) => {
+const FilmBanner: React.FC<Props> = ({ imageUrl, testID }) => {
   return (
-    <View>
+    <View testID={testID}>
       <Image
         source={{
           uri: imageUrl,

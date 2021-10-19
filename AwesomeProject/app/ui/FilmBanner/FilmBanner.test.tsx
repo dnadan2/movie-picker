@@ -5,8 +5,12 @@ import React from 'react';
 describe('film banner', () => {
   test('should display a film banner', () => {
     const rendered = create(
-      <FilmBanner imageUrl="https://image.tmdb.org/t/p/original/hkC4yNDFmW1yQuQhtZydMeRuaAb.jpg"></FilmBanner>
+      <FilmBanner
+        imageUrl="https://image.tmdb.org/t/p/original/hkC4yNDFmW1yQuQhtZydMeRuaAb.jpg"
+        testID="test-id"></FilmBanner>
     );
+
+    expect(rendered.root.findByProps({ testID: 'test-id' })).toBeDefined();
 
     expect(
       rendered.root.findByProps({ testID: 'film-banner-image' })
