@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <SafeAreaView>
-      <FilmBanner imageUrl="../assets/film_banner.jpeg" />
+      <FilmBanner imageUrl="https://image.tmdb.org/t/p/original/hkC4yNDFmW1yQuQhtZydMeRuaAb.jpg" />
     </SafeAreaView>
   );
 };
