@@ -8,7 +8,7 @@ const StreamingAvailabilityChoice: React.FC = () => {
 
   return (
     <FilmBanner
-      imageUrl={films.films.posterURLs.original}
+      imageUrl={films[0].posterURLs.original}
       testID="film-banner"
     />
   );
