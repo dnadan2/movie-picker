@@ -3,13 +3,13 @@ import {
   onGetStreamingAvailability,
   StreamingAvailabilityAction,
 } from '../../actions/streamingAvailabilityAction';
-import { StreamingAvailabilityResponse } from '../../api/StreamingAvailability/interfaces';
 import { DeepReadonlyObject } from '../../helpers/readonlyInterfaces';
+import { StreamingAvailabilityState } from './interfaces';
 
-export const defaultState: StreamingAvailabilityResponse[] = [];
+export const defaultState: StreamingAvailabilityState = { films: [] };
 
 export const streamingAvailabilityReducer = createReducer<
-  DeepReadonlyObject<StreamingAvailabilityResponse[]>,
+  DeepReadonlyObject<StreamingAvailabilityState>,
   StreamingAvailabilityAction
 >(defaultState).handleAction(
   onGetStreamingAvailability.success,

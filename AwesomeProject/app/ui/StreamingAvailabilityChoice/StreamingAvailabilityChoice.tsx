@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Text } from 'react-native';
 import { useSelector } from 'react-redux';
 import { StreamingAvailabilitySelector } from '../../redux/streamingAvailability/streamingAvailabilitySelector';
 import FilmBanner from '../FilmBanner/FilmBanner';
 
 const StreamingAvailabilityChoice: React.FC = () => {
-  const films = useSelector(StreamingAvailabilitySelector.getAvailableFilms);
+  const availableFilms = useSelector(
+    StreamingAvailabilitySelector.getAvailableFilms
+  );
+
+  const getImageUrl = () => availableFilms.films[0].posterURLs.original;
 
   return (
-    <FilmBanner imageUrl={films[0].posterURLs.original} testID="film-banner" />
+    <>
+      {availableFilms && availableFilms.films.length > 0 ? (
+        <FilmBanner imageUrl={getImageUrl()} testID="film-banner" />
+      ) : (
+        <Text>sometext</Text>
+      )}
+    </>
   );
 };
 

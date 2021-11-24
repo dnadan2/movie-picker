@@ -15,7 +15,9 @@ describe('StreamingAvailabilityChoice', () => {
 
   test.only('should display image from streaming availability API call', () => {
     const films: RecursivePartial<RootState> = {
-      streamingAvailabilityReducer: [{ posterURLs: { original: 'someURL' } }],
+      streamingAvailabilityReducer: {
+        films: [{ posterURLs: { original: 'someURL' } }],
+      },
     };
     const rendered = create(
       <Provider store={mockStore(films)}>
