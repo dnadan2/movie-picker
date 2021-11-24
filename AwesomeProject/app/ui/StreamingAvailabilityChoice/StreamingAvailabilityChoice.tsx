@@ -1,10 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { StreamingAvailabilitySelector } from '../../redux/streamingAvailability/streamingAvailabilitySelector';
 import FilmBanner from '../FilmBanner/FilmBanner';
 
 const StreamingAvailabilityChoice: React.FC = () => {
+  const films = useSelector(StreamingAvailabilitySelector.getAvailableFilms);
+
   return (
     <FilmBanner
-      imageUrl="https://image.tmdb.org/t/p/original/hkC4yNDFmW1yQuQhtZydMeRuaAb.jpg"
+      imageUrl={films[0].posterURLs.original}
       testID="film-banner"
     />
   );
