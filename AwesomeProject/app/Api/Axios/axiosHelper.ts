@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { StreamingAvailabilityResponse } from '../StreamingAvailability/interfaces';
 
 const streamingAvailabilityOptions: AxiosRequestConfig = {
   method: 'GET',
@@ -19,6 +20,6 @@ const streamingAvailabilityOptions: AxiosRequestConfig = {
 
 export const post = async (
   options: AxiosRequestConfig
-): Promise<AxiosResponse> => {
-  return await axios.request(options).then((response) => response.data);
+): Promise<StreamingAvailabilityResponse[]> => {
+  return await axios.request(options).then((response: AxiosResponse<StreamingAvailabilityResponse[]>) => response.data);
 };

@@ -29,7 +29,7 @@ export const getAvailability = async (
 ): Promise<StreamingAvailabilityResponse[]> => {
   return await post(
     getStreamingAvailabilityOptions(country, service, type, page, language)
-  ).then((response) => response.data);
+  ).then((response: StreamingAvailabilityResponse[]) => response);
 };
 
 const getStreamingAvailabilityOptions = (
