@@ -18,6 +18,11 @@ describe('Saga: get film availability', () => {
       .spyOn(streamingAvailability, 'getAvailability')
       .mockImplementation(mockGetAvailability);
 
+    const mockGetAvailableFilms = jest.fn().mockReturnValue([]);
+    jest
+      .spyOn(StreamingAvailabilitySelector, 'getAvailableFilms')
+      .mockImplementation(mockGetAvailableFilms);
+
     return expectSaga(getFilmAvailabilitySaga)
       .put(
         onGetStreamingAvailability.success(
@@ -41,9 +46,7 @@ describe('Saga: get film availability', () => {
     const mockStoredFilms: RecursivePartial<StreamingAvailabilityItems[]> = [
       { title: 'Space Odesey' },
     ];
-    const mockGetAvailableFilms = jest
-      .fn()
-      .mockReturnValue({ mockStoredFilms });
+    const mockGetAvailableFilms = jest.fn().mockReturnValue(mockStoredFilms);
     jest
       .spyOn(StreamingAvailabilitySelector, 'getAvailableFilms')
       .mockImplementation(mockGetAvailableFilms);
