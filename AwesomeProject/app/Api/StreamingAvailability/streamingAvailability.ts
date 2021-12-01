@@ -1,6 +1,6 @@
 import {
   StreamingAvailabilityConfig,
-  StreamingAvailabilityResponse,
+  StreamingAvailabilityItems,
 } from './interfaces';
 import { post } from '../Axios/axiosHelper';
 
@@ -26,10 +26,10 @@ export const getAvailability = async (
   type: string,
   page: string,
   language: string
-): Promise<StreamingAvailabilityResponse[]> => {
+): Promise<StreamingAvailabilityItems[]> => {
   return await post(
     getStreamingAvailabilityOptions(country, service, type, page, language)
-  ).then((response: StreamingAvailabilityResponse[]) => response);
+  ).then((response: StreamingAvailabilityItems[]) => response);
 };
 
 const getStreamingAvailabilityOptions = (

@@ -11,17 +11,18 @@ const Root = () => {
 
   return (
     <SafeAreaView>
-        <StreamingAvailabilityChoice />
+      <StreamingAvailabilityChoice />
     </SafeAreaView>
   );
-}
+};
 
 const App = () => {
   const store = configuredStore;
+
   return (
-      <Provider store={store}>
-        <Root />
-      </Provider>
+    <Provider store={store}>
+      <Root />
+    </Provider>
   );
 };
 

@@ -1,6 +1,10 @@
 import { AxiosRequestConfig } from 'axios';
 
 export interface StreamingAvailabilityResponse {
+  results: StreamingAvailabilityItems[];
+}
+
+export interface StreamingAvailabilityItems {
   posterURLs: {
     original: string;
   };

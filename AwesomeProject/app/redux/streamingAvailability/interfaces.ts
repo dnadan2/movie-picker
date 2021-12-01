@@ -1,5 +1,5 @@
-import { StreamingAvailabilityResponse } from '../../api/StreamingAvailability/interfaces';
+import { StreamingAvailabilityItems } from '../../api/StreamingAvailability/interfaces';
 
 export interface StreamingAvailabilityState {
-  films: StreamingAvailabilityResponse[];
+  films: StreamingAvailabilityItems[];
 }

@@ -2,7 +2,7 @@ import * as AxiosHelper from '../Axios/axiosHelper';
 import { getAvailability } from './StreamingAvailability';
 import {
   StreamingAvailabilityConfig,
-  StreamingAvailabilityResponse,
+  StreamingAvailabilityItems,
 } from './interfaces';
 import { RecursivePartial } from '../../types';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
@@ -25,11 +25,9 @@ describe('streaming availability', () => {
       },
     };
 
-    const mockResponse: RecursivePartial<
-      AxiosResponse<StreamingAvailabilityResponse[]>
-    > = {
-      data: [{ title: 'some title' }],
-    };
+    const mockResponse: RecursivePartial<StreamingAvailabilityItems[]> = [
+      { title: 'some title' },
+    ];
 
     const mockRequest = jest.fn().mockResolvedValue(mockResponse);
 
