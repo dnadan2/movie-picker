@@ -15,17 +15,20 @@ describe('axios helper', () => {
     };
 
     const mockResponse: Partial<AxiosResponse> = {
-      data: {},
+      data: {
+        results: [],
+      },
     };
+  
+    const jestFn = jest.fn();
 
-    const mockRequest = jest
-      .fn()
-      .mockResolvedValue(mockResponse as AxiosResponse);
+    const mockRequest = jestFn.mockResolvedValue(mockResponse as AxiosResponse);
 
     jest.spyOn(axios, 'request').mockImplementation(mockRequest);
 
     var response = await post(testPostOption);
 
+    expect(jestFn).toHaveBeenCalled();
     expect(mockRequest).toHaveBeenCalled();
     expect(response).toBeDefined();
   });
